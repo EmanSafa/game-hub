@@ -5,7 +5,6 @@ import {
   List,
   ListItem,
   Spinner,
-  Text,
 } from "@chakra-ui/react";
 import useGenres, { type Genre } from "../hooks/useGenres";
 import { getCroppedImageUrl } from "../services/image-url";
@@ -16,9 +15,9 @@ interface IProps {
 const GenreList = ({ selectedGenre, onSelectedGenre }: IProps) => {
   const { data, isLoading, error } = useGenres();
   if (isLoading) return <Spinner />;
+  if (error) return null;
   return (
     <List>
-      {error && <Text color="red">{error}</Text>}
       {data.map((genre) => (
         <ListItem key={genre.id} paddingY={2}>
           <HStack>
