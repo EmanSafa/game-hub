@@ -10,10 +10,9 @@ const GameGrid = () => {
   return (
     <div>
       {error && <Text color="red">{error}</Text>}
-      <h1>Game Grid</h1>
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 2, xl: 3 }}
-        spacing={5}
+        spacing={4}
         padding={2}
       >
         {isLoading &&
