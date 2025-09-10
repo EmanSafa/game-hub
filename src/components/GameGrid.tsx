@@ -11,9 +11,9 @@ interface IProps {
 const GameGrid = ({ gameQuery }: IProps) => {
   const { error, data, isLoading } = useGames(gameQuery);
   const skeleton = [1, 2, 3, 4, 5, 6];
+  if (error) return <Text>{error}</Text>;
   return (
-    <div>
-      {error && <Text color="red">{error}</Text>}
+    <>
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 2, xl: 3 }}
         spacing={6}
@@ -31,7 +31,7 @@ const GameGrid = ({ gameQuery }: IProps) => {
           </GameCardContainer>
         ))}
       </SimpleGrid>
-    </div>
+    </>
   );
 };
 
