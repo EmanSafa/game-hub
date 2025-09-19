@@ -4,15 +4,21 @@ import usePlatorm from "../hooks/usePlatforms";
 import type { Platform } from "../hooks/usePlatforms";
 interface IProps {
   onSelectedPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
+  selectedPlatformId: number;
 }
-const PlatformSelector = ({ onSelectedPlatform, selectedPlatform }: IProps) => {
+const PlatformSelector = ({
+  onSelectedPlatform,
+  selectedPlatformId,
+}: IProps) => {
   const { data, error } = usePlatorm();
   if (error) return null;
+  const selectedPlatorm = data?.results.find(
+    (p) => p.id === selectedPlatformId
+  );
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selectedPlatform?.name || "Platforms"}
+        {selectedPlatorm?.name || "Platforms"}
       </MenuButton>
       <MenuList>
         {data?.results.map((platform) => (

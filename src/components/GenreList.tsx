@@ -11,9 +11,9 @@ import useGenres, { type Genre } from "../hooks/useGenres";
 import { getCroppedImageUrl } from "../services/image-url";
 interface IProps {
   onSelectedGenre: (genre: Genre) => void;
-  selectedGenre?: Genre | null;
+  selectedGenreId?: number;
 }
-const GenreList = ({ selectedGenre, onSelectedGenre }: IProps) => {
+const GenreList = ({ selectedGenreId, onSelectedGenre }: IProps) => {
   const { data, isLoading, error } = useGenres();
   if (isLoading) return <Spinner />;
   if (error) return null;
@@ -34,7 +34,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: IProps) => {
               whiteSpace={"normal"}
               textAlign={"left"}
               variant="link"
-              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+              fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
               onClick={() => {
                 onSelectedGenre(genre);
               }}
