@@ -16,9 +16,14 @@ class APIClient<T> {
   constructor(endpoint: string) {
     this.endpoint = endpoint;
   }
-  getAll = (config: AxiosRequestConfig) => {
+  getAll = async (config: AxiosRequestConfig) => {
     return axiosInstance
       .get<FetchResponse<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
+  getSingleGame = async (id: string |  number) => {
+    return axiosInstance
+      .get<T>(this.endpoint + "/" + id)
       .then((res) => res.data);
   };
 }

@@ -1,8 +1,18 @@
+import { useParams } from "react-router-dom";
+import useSingleGames from "../hooks/useSingleGame";
+import { Box, Heading, Spinner, Text } from "@chakra-ui/react";
 
 const CardDetailis = () => {
-  return (
-    <div>CardDetailis</div>
-  )
-}
+  const { slug } = useParams();
+  const { data: singleGame, isLoading } = useSingleGames(String(slug));
+  if (isLoading) return <Spinner />;
 
-export default CardDetailis
+  return (
+    <Box padding={5} margin={3}>
+      <Heading>{singleGame?.name}</Heading>
+      <Text>{singleGame?.description}</Text>
+    </Box>
+  );
+};
+
+export default CardDetailis;

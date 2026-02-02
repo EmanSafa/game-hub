@@ -4,6 +4,7 @@ import PlatformIconList from "./PlatformIconList";
 import CritucScore from "./CritucScore";
 import { getCroppedImageUrl } from "./../services/image-url";
 import Emoji from "./Emoji";
+import { Link } from "react-router-dom";
 
 interface IProps {
   game: Game;
@@ -21,7 +22,7 @@ const GameCard = ({ game }: IProps) => {
           <CritucScore score={game.metacritic} />
         </HStack>
         <Heading fontSize={"2xl"}>
-          {game.name}
+          <Link to={`/games/${game.slug}`}>{game.name}</Link>
           <Emoji rating={game.rating_top} />
         </Heading>
       </CardBody>

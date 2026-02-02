@@ -13,6 +13,7 @@ export interface Game {
   metacritic: number;
   rating_top: number;
   ratings: number;
+  slug:string;
 }
 const apiClient = new APIClient<Game>("/games");
 const useGames = () => {
