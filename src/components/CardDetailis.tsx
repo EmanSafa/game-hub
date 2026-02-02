@@ -1,16 +1,18 @@
 import { useParams } from "react-router-dom";
 import useSingleGames from "../hooks/useSingleGame";
-import { Box, Heading, Spinner, Text } from "@chakra-ui/react";
+import { Box, Spinner } from "@chakra-ui/react";
+import ExpandableText from "./ExpandableText";
 
 const CardDetailis = () => {
   const { slug } = useParams();
   const { data: singleGame, isLoading } = useSingleGames(String(slug));
   if (isLoading) return <Spinner />;
-
+  
   return (
     <Box padding={5} margin={3}>
-      <Heading>{singleGame?.name}</Heading>
-      <Text>{singleGame?.description}</Text>
+     <ExpandableText limit={300}>
+       {singleGame?.description || "No description available."}
+     </ExpandableText>
     </Box>
   );
 };
