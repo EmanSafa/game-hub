@@ -16,6 +16,16 @@ export interface Game {
   rating_top: number;
   ratings: number;
   slug: string;
+  platforms: { platform: Platform }[];
+  genres: Genre[];
+  publishers: Publisher[];
+}
+export interface Publisher {
+  games_count: number;
+  id: number;
+  image_background: string;
+  name: string;
+  slug: string;
 }
 export interface Genre {
   id: number;
