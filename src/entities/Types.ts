@@ -20,6 +20,12 @@ export interface Game {
   genres: Genre[];
   publishers: Publisher[];
 }
+export interface Trailier {
+  id: number;
+  name: string;
+  preview: string;
+  data: {480:string , max:string};
+}
 export interface Publisher {
   games_count: number;
   id: number;
