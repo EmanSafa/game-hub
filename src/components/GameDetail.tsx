@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import useSingleGames from "../hooks/useSingleGame";
-import { Box, GridItem, SimpleGrid, Spinner } from "@chakra-ui/react";
+import {  GridItem, SimpleGrid, Spinner } from "@chakra-ui/react";
 import ExpandableText from "./ExpandableText";
 import GameAttributes from "./GameAttributes";
 import GameTrailier from "./GameTrailier";
