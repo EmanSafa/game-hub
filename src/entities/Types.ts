@@ -27,13 +27,11 @@ export interface Trailier {
   data: { 480: string; max: string };
 }
 export interface Screenshot {
-  count: number;
-  next: string;
-  previous: string;
-  results: ScreenshotResult[];
-}
-export interface ScreenshotResult {
-  image: string; hidden: boolean; id: number 
+  id: number;
+  image: string;
+  width: number;
+  height: number;
+  hidden: boolean;
 }
 export interface Publisher {
   games_count: number;
